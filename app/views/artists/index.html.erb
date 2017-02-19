@@ -1,0 +1,30 @@
+<div class="artists index">
+
+  <%= link_to("<< Back to Home",{:controller => "home"}, {:action => "index"}) %>
+  <h1>Artists</h1>
+
+  <%= link_to("Add New Artist", {:action => "new"}, :class => 'action new') %>
+
+  <br> </br>
+  <table class="listing" summary="Artists list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Artists</th>
+      <th> </th>
+      <th>Actions</th>
+    </tr>
+    <% @artists.each do |artist| %>
+    <tr>
+      <td><%= artist.position %></td>
+      <td><%= artist.name %></td>
+      <td class="center"><%#= artist.pages.size %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => artist.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => artist.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => artist.id}, :class => 'action delete') %>
+        <%= link_to("Join", {:action => 'join', :id => artist.id}, :class => 'action join') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

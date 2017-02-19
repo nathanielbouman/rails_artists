@@ -1,0 +1,29 @@
+<div class="museums index">
+  <%= link_to("<< Back to Home",{:controller => "home"}, {:action => "index"}) %>
+  <h1>Museums</h1>
+
+  <%= link_to("Add New Museum", {:action => "new"}, :class => 'action new') %>
+
+  <br> </br>
+  <table class="listing" summary="Museums list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>Museums</th>
+      <th> </th>
+      <th>Actions</th>
+    </tr>
+    <% @museums.each do |museum| %>
+    <tr>
+      <td><%= museum.position %></td>
+      <td><%= museum.name %></td>
+      <td class="center"><%#= museum.pages.size %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => museum.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => "edit" , :id => museum.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => "delete" , :id => museum.id}, :class => 'action delete') %>
+        <%= link_to("Join", {:action => "join" , :id => museum.id}, :class => 'action join') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<%= link_to("<< Back to Artist List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="artists join">
+  <h1>Join Artist to Museum</h1>
+
+  
+  
+  <table class="listing" summary="Museums list">
+    <tr class="header">
+
+      <th>Museums</th>
+      <th>Join?</th>
+    </tr>
+    <% @museums.each do |museum| %>
+      <% if @artistmuseums.include?(museum) == false %>
+      <tr>
+        <td><%= museum.name %></td>
+        <td class="actions">
+          <%= link_to("Join", {:controller => "artists", :action => "dojoin" , :id => @artist.id, :museumid => museum.id}, :class => 'action dojoin') %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+</div>

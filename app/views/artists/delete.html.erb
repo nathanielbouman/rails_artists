@@ -1,0 +1,19 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+
+<div class="artists delete">
+
+  <h1>Delete Artist</h1>
+
+  <%= form_for(:section, :url => {:action => 'destroy', :id => @artist.id}) do |f| %>
+
+    <p>Are you sure you want to permanently delete this artist?</p>
+
+    <p class="reference-name"><%= @artist.name %></p>
+
+    <div class="form-buttons">
+      <%= submit_tag("Delete Artist") %>
+    </div>
+
+  <% end %>
+</div>

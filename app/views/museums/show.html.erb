@@ -1,0 +1,45 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= link_to("<< Back to Museum List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="museum show">
+  <h1>Show Museum</h1>
+
+  <table summary="Museum detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @museum.name %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @museum.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @museum.updated_at %></td>
+    </tr>
+  </table>
+  
+  <table class="listing" summary="Artist list">
+    <tr class="header">
+      <th>Artist</th>
+      <th>Actions</th>
+    </tr>
+    <% @artists.each do |artist| %>
+    <tr>
+      <td><%= artist.name %></td>
+      <td class="actions">
+        <%= link_to("Show", {:controller => "artists", :action => "show" , :id => artist.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:controller => "artists", :action => "edit" , :id => artist.id}, :class => 'action edit') %>
+        <%= link_to("Remove", {:controller => "museums", :action => "remove" , :id => @museum.id, :artistid => artist.id}, :class => 'action remove') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+</div>
+

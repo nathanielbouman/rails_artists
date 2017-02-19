@@ -1,0 +1,36 @@
+body {
+   font-family: Helvetica, Geneva, Arial, sans-serif;
+   font-size: large;
+   background: url(unnamed.jpg);
+   background-size: cover;
+   text-align: center;
+}
+
+h1 {
+   font-family: Helvetica, Geneva, Arial, sans-serif;
+   color: white;
+}
+
+table {
+    margin-left:auto;
+    margin-right:auto;
+    color:white;
+    background-color: rgba(0,0,0,0.4);
+}
+
+tr {
+    color:white;
+}
+
+p {
+    color:white;
+}
+
+
+a:visited {
+   color: white;
+}
+
+a:link {
+    color: white;
+}
